@@ -121,12 +121,12 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sudo kubeadm join master1.coe.com:6443 --token xxxxx \
 --discovery-token-ca-cert-hash sha256:xxxxx
 ```
-#### `Note`: You shall find token and keys in the `kubeadm init` output.
+#### `Note`: You shall find token and keys from the `kubeadm init` output.
 
 #### Install Calico CNI
 ```
 kubectl create -f 
-https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigeraoperator.yaml
+https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
 ```
 ```
 curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/

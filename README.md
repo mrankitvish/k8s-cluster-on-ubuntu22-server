@@ -121,7 +121,7 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 sudo kubeadm join master1.coe.com:6443 --token xxxxx \
 --discovery-token-ca-cert-hash sha256:xxxxx
 ```
-#### `Note`: You can find this command in your kubeadm init output.
+#### `Note`: You shall find token and keys in the `kubeadm init` output.
 
 #### Install Calico CNI
 ```

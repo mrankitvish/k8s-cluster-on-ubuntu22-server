@@ -1,5 +1,12 @@
 # Kubernetes Deployment on Ubuntu 22.04 LTS
+## Prerequisites
+---
+#### Before you begin, you should have the following:
 
+- Three Ubuntu 22.04 LTS servers, each with a non-root user with sudo privileges.
+- A fully-qualified domain name (FQDN) for each server.
+- The servers should be able to communicate with each other over a private network.
+---
 ---
 #### Update and upgrade servers
 
@@ -14,12 +21,12 @@ sudo hostnamectl set-hostname master1.example.com
 ```
 
 ##### Run at worker1
-```dsconfig
+```
 sudo hostnamectl set-hostname worker1.example.com
 ```
 
 ##### Run at worker2
-```bash
+```
 sudo hostnamectl set-hostname worker2.example.com
 ```
 

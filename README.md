@@ -14,12 +14,12 @@ sudo hostnamectl set-hostname master1.example.com
 ```
 
 ##### Run at worker1
-```
+```dsconfig
 sudo hostnamectl set-hostname worker1.example.com
 ```
 
 ##### Run at worker2
-```
+```bash
 sudo hostnamectl set-hostname worker2.example.com
 ```
 

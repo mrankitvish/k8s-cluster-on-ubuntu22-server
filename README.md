@@ -106,7 +106,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 #### Initialize Kubernetes cluster (master only)
 ```
-sudo kubeadm init –control-plane-endpoint=master1.example.com --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init -–control-plane-endpoint=master1.example.com --pod-network-cidr=192.168.0.0/16
 ```
 
 #### Add kube config file to user’s environment to get access the kubectl command

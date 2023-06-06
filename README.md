@@ -40,7 +40,9 @@ sudo hostnamectl set-hostname worker2.example.com
 sudo swapoff -a
 ```
 Comment out the swap in the fstab file.
-
+```
+mount -a
+```
 ```
 sudo tee /etc/modules-load.d/containerd.conf <<EOF
 overlay
@@ -106,7 +108,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 ```
 #### Initialize Kubernetes cluster (master only)
 ```
-sudo kubeadm init -–control-plane-endpoint=master1.example.com --pod-network-cidr=192.168.0.0/16
+sudo kubeadm init --control-plane-endpoint=master1.example.com --pod-network-cidr=192.168.0.0/16
 ```
 
 #### Add kube config file to user’s environment to get access the kubectl command
@@ -125,12 +127,13 @@ sudo kubeadm join master1.coe.com:6443 --token xxxxx \
 
 #### Install Calico CNI
 ```
-kubectl create -f 
-https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
+kubectl apply -f https://docs.projectcalico.org/v3.25/manifests/calico.yaml
 ```
 ```
-curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/
-custom-resources.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
+```
+```
+curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
 ```
 ```
 kubectl apply -f custom-resources.yaml

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="kubernetes-deployment-on-ubuntu-2204-lts">Kubernetes Deployment on Ubuntu 22.04 LTS</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<h4 id="before-you-begin-you-should-have-the-following">Before you begin, you should have the following:</h4>
+<ul>
+<li>Three Ubuntu 22.04 LTS servers, each with a non-root user with sudo privileges.</li>
+<li>A fully-qualified domain name (FQDN) for each server.</li>
+<li>The servers should be able to communicate with each other over a private network.</li>
+</ul>
+<hr>
+<h4 id="update-and-upgrade-servers">Update and upgrade servers</h4>
+<pre class="hljs"><code><div>sudo apt update &amp;&amp; sudo apt full-upgrade -y
+</div></code></pre>
+<h4 id="set-up-fully-qualified-hostname-on-all-nodes">Set up fully-qualified hostname on all nodes</h4>
+<h5 id="run-at-master1">Run at master1</h5>
+<pre class="hljs"><code><div>sudo hostnamectl set-hostname master1.example.com
+</div></code></pre>
+<h5 id="run-at-worker1">Run at worker1</h5>
+<pre class="hljs"><code><div>sudo hostnamectl set-hostname worker1.example.com
+</div></code></pre>
+<h5 id="run-at-worker2">Run at worker2</h5>
+<pre class="hljs"><code><div>sudo hostnamectl set-hostname worker2.example.com
+</div></code></pre>
+<h4 id="do-host-entry-in-etchosts-file-of-each-node">Do host entry in <code>/etc/hosts</code> file of each node</h4>
+<pre class="hljs"><code><div>10.0.100.138    master1.example.com    master1   
+10.0.100.216    worker1.example.com    worker1
+10.0.100.218    worker2.example.com    worker2
+</div></code></pre>
+<h4 id="disable-swap-and-add-some-kernel-parameters-on-each-node">Disable swap and add some kernel parameters on each node</h4>
+<pre class="hljs"><code><div>sudo swapoff -a
+</div></code></pre>
+<p>Comment out the swap in the fstab file.</p>
+<pre class="hljs"><code><div>mount -a
+</div></code></pre>
+<pre class="hljs"><code><div>sudo tee /etc/modules-load.d/containerd.conf &lt;&lt;EOF
+overlay
+br_netfilter
+EOF
+</div></code></pre>
+<pre class="hljs"><code><div>sudo modprobe overlay
+sudo modprobe br_netfilter
+</div></code></pre>
+<pre class="hljs"><code><div>sudo tee /etc/sysctl.d/kubernetes.conf &lt;&lt;EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+EOF
+</div></code></pre>
+<pre class="hljs"><code><div>sudo sysctl --system
+</div></code></pre>
+<h4 id="install-containerd-runtime-on-each-node">Install containerd runtime on each node</h4>
+<pre class="hljs"><code><div>sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates
+</div></code></pre>
+<pre class="hljs"><code><div>
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+</div></code></pre>
+<pre class="hljs"><code><div>sudo add-apt-repository &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable&quot;
+</div></code></pre>
+<pre class="hljs"><code><div>sudo apt update &amp;&amp; sudo apt install containerd.io
+</div></code></pre>
+<pre class="hljs"><code><div>containerd config default | sudo tee /etc/containerd/config.toml &gt;/dev/null 2&gt;&amp;1
+</div></code></pre>
+<pre class="hljs"><code><div>sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+</div></code></pre>
+<pre class="hljs"><code><div>sudo systemctl restart containerd &amp;&amp; sudo systemctl enable containerd
+</div></code></pre>
+<h4 id="adding-repo-for-kubernetes">Adding repo for Kubernetes:</h4>
+<pre class="hljs"><code><div>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/kubernetes-xenial.gpg
+</div></code></pre>
+<pre class="hljs"><code><div>sudo apt-add-repository &quot;deb http://apt.kubernetes.io/ kubernetes-xenial main&quot;
+</div></code></pre>
+<h4 id="install-kubelet-kubeadm-and-kubectl">Install kubelet, kubeadm, and kubectl:</h4>
+<pre class="hljs"><code><div>sudo apt update
+sudo apt install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+</div></code></pre>
+<h4 id="initialize-kubernetes-cluster-master-only">Initialize Kubernetes cluster (master only)</h4>
+<pre class="hljs"><code><div>sudo kubeadm init --control-plane-endpoint=master1.example.com --pod-network-cidr=192.168.0.0/16
+</div></code></pre>
+<h4 id="add-kube-config-file-to-users-environment-to-get-access-the-kubectl-command">Add kube config file to user’s environment to get access the kubectl command</h4>
+<pre class="hljs"><code><div>mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+</div></code></pre>
+<h4 id="join-other-nodes-to-cluster-workers">Join other nodes to cluster (workers)</h4>
+<pre class="hljs"><code><div>sudo kubeadm join master1.coe.com:6443 --token xxxxx \
+--discovery-token-ca-cert-hash sha256:xxxxx
+</div></code></pre>
+<h4 id="note-you-shall-find-token-and-keys-from-the-kubeadm-init-output"><code>Note</code>: You shall find token and keys from the <code>kubeadm init</code> output.</h4>
+<h4 id="install-calico-cni">Install Calico CNI</h4>
+<pre class="hljs"><code><div>kubectl apply -f https://docs.projectcalico.org/v3.25/manifests/calico.yaml
+</div></code></pre>
+<pre class="hljs"><code><div>kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/tigera-operator.yaml
+</div></code></pre>
+<pre class="hljs"><code><div>curl -O https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/custom-resources.yaml
+</div></code></pre>
+<pre class="hljs"><code><div>kubectl apply -f custom-resources.yaml
+</div></code></pre>
+
+</body>
+</html>
